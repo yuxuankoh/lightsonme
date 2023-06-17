@@ -26,9 +26,13 @@ img {
   width: 25em;
   height: 25em;
 }
+.space {
+  padding: 1em 1em 1em 1em;
+}
 .image-container {
   border: 1px solid #000000;
-  background-color: white
+  background-color: white;
+  height: 10em;
 }
 hr{
   background-color: azure;
