@@ -72,8 +72,8 @@ hr{
   }
   .container {
     width: 20em;
-    height: 20em;
-    grid-auto-rows: 6em;
+    height: 24em;
+    grid-auto-rows: 8em;
   }
   .original-image {
     width: 20em;
