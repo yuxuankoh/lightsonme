@@ -1,3 +1,4 @@
+//Initial References
 const moves = document.getElementById("moves");
 const container = document.querySelector(".container");
 const startButton = document.getElementById("start-button");
@@ -5,19 +6,21 @@ const coverScreen = document.querySelector(".cover-screen");
 const result = document.getElementById("result");
 let currentElement = "";
 let movesCount, imagesArr = [];
-// const isTouchDevice = () => {
-//   try {
-//     document.createEvent("TouchEvent");
-//     return true;
-//   } catch (e) {
-//     return false;
-//   }
-// };
+const isTouchDevice = () => {
+  try {
+    document.createEvent("TouchEvent");
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
 const randomNumber = () => Math.floor(Math.random() * 8) + 1;
 const getCoords = (element) => {
   const [row, col] = element.getAttribute("data-position").split("_");
   return [parseInt(row), parseInt(col)];
 };
+
 const checkAdjacent = (row1, row2, col1, col2) => {
   if (row1 == row2) {
     //left/right
@@ -62,9 +65,9 @@ const gridGenerator = () => {
   }
 };
 
+//Click the image
 const selectImage = (e) => {
   e.preventDefault();
-  //Set currentElement
   currentElement = e.target;
   //target(blank image)
   let targetElement = document.querySelector(".target");
@@ -96,7 +99,8 @@ const selectImage = (e) => {
       imagesArr[currentArrIndex],
     ];
 
-    if (imagesArr.join("") == "12345678") {
+    //Win condition
+    if (imagesArr.join("") == "100") {
       setTimeout(() => {
         //When games ends display the cover screen again
         coverScreen.classList.remove("hide");
@@ -111,6 +115,7 @@ const selectImage = (e) => {
   }
 };
 
+//Start button click should display the container
 startButton.addEventListener("click", () => {
   container.classList.remove("hide");
   coverScreen.classList.add("hide");
